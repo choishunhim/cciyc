@@ -31,6 +31,22 @@ export class ItemService {
     );
   }
 
+  addItem(item: Item): Observable<Item> {
+    return this.http.post<Item>(this.itemsUrl, item, httpOptions).pipe(
+      catchError(this.handleError<Item>('addItem'))
+    );
+  }
+
+  searchItems(term: string): Observable<Item[]> {
+    if (!term.trim()) {
+      // return empty if no search term
+      return of([]);
+    }
+    return this.http.get<Item[]>(`itemsUrl?name=${term}`).pipe(
+      catchError(this.handleError<Item[]>('searchItem: ' + term,[]))
+    )
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
