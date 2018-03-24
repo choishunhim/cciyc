@@ -1,0 +1,85 @@
+export class Item {
+  ID: number;
+  c_item_id: string;
+  c_item_id_link: string;
+  c_title: string;
+  c_subtitle: string;
+  c_index: string;
+  c_type: string;
+  c_category: string;
+  c_subcategory: string;
+  b_attach_item: boolean;
+  c_author: string;
+  c_co_author: string;
+  c_editor: string;
+  c_language: string;
+  c_keyword: string;
+  i_status: number;
+  c_statusno_reason: string;
+  i_out_times: number;
+  c_ISBN: string;
+  c_subject: string;
+  c_publisher: string;
+  b_translate: boolean;
+  c_original_language: string;
+  i_difficult_level: number;
+  c_edition: string;
+  i_pages: number;
+  m_introduction: string;
+  c_vendor: string;
+  c_country: string;
+  d_publish: Date;
+  //d_publish: string;
+  c_reference_No: string;
+  c_location: string;
+  d_purchased: Date;
+  //d_purchased: string;
+  u_price: string;
+  f_value: Float32Array;
+  //f_value: number;
+  i_rating: number;
+  c_picture: string;
+  c_user_ID: string;
+  d_checkout: Date;
+  //d_checkout: string;
+  d_due: Date;
+  //d_due: string;
+  i_renew: number;
+  c_rem: string;
+  c_mem_id: string;
+  c_centre: string;
+  c_checkout_auth: string;
+  c_checkout_type: string;
+  d_expired: Date;
+  //d_expired: string;
+  c_donator: string;
+  d_broken: Date;
+  //d_broken: string;
+  c_broken_reason: string;
+  c_broken_respon: string;
+  c_broken_refno: string;
+  d_maint_from: Date;
+  //d_maint_from: string;
+  d_maint_to: Date;
+  //d_maint_to: string;
+  c_maint_compname: string;
+  c_maint_comptel: string;
+  c_maint_compadd: string;
+  c_maint_compweb: string;
+  c_maint_compemail: string;
+  c_maint_rem: string;
+  b_maint_rem1: boolean;
+  b_maint_rem2: boolean;
+  b_maint_rem3: boolean;
+  b_maint_rem4: boolean;
+  b_maint_rem5: boolean;
+  b_maint_rem6: boolean;
+  c_out_rem: string;
+  School_ID: string;
+
+  getID(): number {
+    return this.ID;
+  }
+
+}
+
