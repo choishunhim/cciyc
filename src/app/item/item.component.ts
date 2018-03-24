@@ -12,7 +12,7 @@ import { Location } from '@angular/common';
 })
 export class ItemComponent implements OnInit {
 
-  //@Input() item: Item;
+  @Input() item: Item;
   items: Item[];
 
 /*
@@ -100,8 +100,9 @@ export class ItemComponent implements OnInit {
   }
 
   getItem(): void {
-    this.itemService.getItems()
-      .subscribe(items => this.items = items);
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.itemService.getItem(id)
+      .subscribe(item => this.item = item);
   }
 
   ngOnInit() {

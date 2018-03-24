@@ -38,11 +38,12 @@ export class ItemService {
   }
 
   searchItems(term: string): Observable<Item[]> {
+    const url = `${this.itemsUrl}/searchByTitle/${term}`;
     if (!term.trim()) {
       // return empty if no search term
       return of([]);
     }
-    return this.http.get<Item[]>(`itemsUrl?name=${term}`).pipe(
+    return this.http.get<Item[]>(url).pipe(
       catchError(this.handleError<Item[]>('searchItem: ' + term,[]))
     )
   }

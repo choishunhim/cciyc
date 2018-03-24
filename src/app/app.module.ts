@@ -10,6 +10,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ItemAddComponent } from './item-add/item-add.component';
 import { ItemSearchComponent } from './item-search/item-search.component';
+import { ItemDetailComponent } from './item-detail/item-detail.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ItemSearchComponent } from './item-search/item-search.component';
     ItemComponent,
     DashboardComponent,
     ItemAddComponent,
-    ItemSearchComponent
+    ItemSearchComponent,
+    ItemDetailComponent
   ],
   imports: [
     BrowserModule,
