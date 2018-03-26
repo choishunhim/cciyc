@@ -1,0 +1,17 @@
+<div *ngIf="item">
+  <h2>{{item.c_title | uppercase}} Details</h2>
+  <table>
+    <tr>
+      <td>ID</td>
+      <td>Title</td>
+    </tr>
+    <tr>
+      <td>{{item.ID}}</td>
+      <td>
+        <input [(ngModel)]="item.c_title" placeholder="name" />
+      </td>
+    </tr>
+  </table>
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>

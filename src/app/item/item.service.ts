@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { LogService } from '../log/log.service';
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,24 +17,28 @@ export class ItemService {
   private itemsUrl = 'http://localhost:3000/items';
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private logService: LogService
   ) { }
 
   getItems(): Observable<Item[]> {
     return this.http.get<Item[]>(this.itemsUrl).pipe(
-        catchError(this.handleError('getItems', []))
+      tap(_ => this.log('fethced all item')),
+      catchError(this.handleError('getItems', []))
       );
   }
 
   getItem(id: number): Observable<Item> {
     const url = `${this.itemsUrl}/${id}`;
     return this.http.get<Item>(url).pipe(
+      tap(_ => this.log(`fetched item id=${id}`)),
       catchError(this.handleError<Item>(`getItem id=${id}`))
     );
   }
 
   addItem(item: Item): Observable<Item> {
     return this.http.post<Item>(this.itemsUrl, item, httpOptions).pipe(
+      tap(_ => this.log('added item')),
       catchError(this.handleError<Item>('addItem'))
     );
   }
@@ -44,6 +50,7 @@ export class ItemService {
       return of([]);
     }
     return this.http.get<Item[]>(url).pipe(
+      tap(_ => this.log(`searched item string=${term}`)),
       catchError(this.handleError<Item[]>('searchItem: ' + term,[]))
     )
   }
@@ -60,5 +67,9 @@ export class ItemService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
+  }
+
+  private log(message: string) {
+    this.logService.add('ItemService: ' + message);
   }
 }

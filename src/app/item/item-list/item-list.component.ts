@@ -1,19 +1,18 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Item } from "./item";
-import { ItemService } from "./item.service";
+import { Item } from "../item";
+import { ItemService } from "../item.service";
 
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-item',
-  templateUrl: './item.component.html',
-  styleUrls: ['./item.component.css']
+  selector: 'app-item-list',
+  templateUrl: './item-list.component.html',
+  styleUrls: ['./item-list.component.css']
 })
-export class ItemComponent implements OnInit {
+export class ItemListComponent implements OnInit {
 
-  @Input() item: Item;
-  items: Item[];
+    items: Item[];
 
 /*
  *  item: Item = {
@@ -97,12 +96,6 @@ export class ItemComponent implements OnInit {
   getItems(): void {
     this.itemService.getItems()
       .subscribe(items => this.items = items);
-  }
-
-  getItem(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.itemService.getItem(id)
-      .subscribe(item => this.item = item);
   }
 
   ngOnInit() {
