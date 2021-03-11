@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
-import { of } from 'rxjs/observable/of';
+import { Observable, Subject } from 'rxjs';
 import { Item } from '../item';
 import { ItemService } from '../item.service';
 

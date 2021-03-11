@@ -1,7 +1,9 @@
 <h1>{{title}}</h1>
 <nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/itemlist">Items</a>
+  <ul>
+    <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+    <li><a routerLink="/itemlist" routerLinkActive="active">Items</a></li>
+  </ul>
 </nav>
 <router-outlet></router-outlet>
 <app-log></app-log>
